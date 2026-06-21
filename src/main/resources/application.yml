@@ -1,0 +1,29 @@
+server:
+  port: 8088
+
+spring:
+  application:
+    name: CHAT-APPLICATION
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/chatapp_db?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password:
+  jpa:
+    database-platform: org.hibernate.dialect.MariaDBDialect
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        type:
+          json_format_mapper: com.example.chatApp.configuration.CustomHibernateJsonFormatter
+
+  # --- BỔ SUNG CẤU HÌNH XỬ LÝ FILE ĐỂ GỬI ĐƯỢC VIDEO ---
+  servlet:
+    multipart:
+      max-file-size: 100MB          # Giới hạn file tối đa 50MB (bạn có thể tăng lên 100MB nếu cần)
+      max-request-size: 100MB       # Tổng dung lượng request tối đa
+      enabled: true
+
+jwt:
+  secret-key: yfH1x5azlrE4we6XsVsZq3rd/Opdv15bm966IauAclguJzbzME0spCAyoxHoVzfiKgn9d8eoL5
